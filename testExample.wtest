@@ -1,10 +1,58 @@
+import wollomones.*
+
 describe "checkpoint1" {
-
-
+    const wollomon1 = new Dragon(fuegoInterior=25, nivel=1)
+    const drako = new Legendario(nivel = 20, fuegoInterior=25, insignia=insigniaRoja, ataques=[new Ataque(dañoQueHace=10), new Ataque(dañoQueHace=40)])
+    const katerpi = new Bicho(nivel=15, ataques=[new Ataque(dañoQueHace=5), new Ataque(dañoQueHace=10), new Ataque(dañoQueHace=2)])
+    // method initialize() {
+    //     wollomon1.aprender(new Ataque(daño=100))
+    // }
+    test "Wollomon1 puede atacar" {
+      assert.that(wollomon1.puedeAtacar())
+    }
+    test "wollomon1 hace 25 de daño" {
+      assert.equals(25, wollomon1.daño())
+    }
+    test "wolommon1 aprende un nuevo ataque y ahora su lista de ataques no está vacía" {
+      wollomon1.aprender(new Ataque(dañoQueHace=100))
+      assert.that(!wollomon1.ataques().isEmpty())
+    }
+    test "Drako tiene 75 de daño" {
+      assert.equals(75, drako.daño())
+    }
+    test "Katerpi hace 17 de daño" {
+      assert.equals(17, katerpi.daño())
+    }
 }
 
 describe "checkpoint2" {
-
+    const picachito = new Electrico(nivel=10, ataques=[new Ataque(dañoQueHace=30), new Ataque(dañoQueHace=15)])
+    const raichu = new Electrico(nivel=12)
+    const dragonait = new Dragon(nivel=20,fuegoInterior=30, ataques=[new Ataque(dañoQueHace=10), new Ataque(dañoQueHace=25)])
+    const mantecaFly = new Bicho(nivel=5,puntosDeSalud=100)
+    method initialize() {
+        clima.humedad(98)
+        picachito.atacar(raichu)
+        dragonait.atacar(mantecaFly)
+    }
+    test "Si recibe un ataque de picachito, raichu pierde 30 de vida (ahora es 170)" {
+      assert.equals(170, raichu.puntosDeSalud())
+    }
+    test "Si recibe un ataque de picachito, raichu pierde un nivel (ahora es 11)" {
+      assert.equals(11, raichu.nivel())
+    }
+    test "Si ataca a raichu estando cargado, su nivel aumenta en 20 (ahora es 30)" {
+      assert.equals(30,picachito.nivel())
+    }
+    test "Si dragonait ataca a mantecaFly, su nivel aumenta en 15 (ahora es 35)" {
+      assert.equals(35, dragonait.nivel())
+    }
+    test "Si mantecaFly recibe un ataque de dragonait, su vida disminuye en 55 (ahora es 45)" {
+      assert.equals(45, mantecaFly.puntosDeSalud())
+    }
+    test "Si mantecaFly recibe un ataque de dragonait, su nivel se mantiene igual (es 5)" {
+      assert.equals(5, mantecaFly.nivel())
+    }
 
 }
 
