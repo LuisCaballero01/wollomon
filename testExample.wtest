@@ -57,11 +57,24 @@ describe "checkpoint2" {
 }
 
 describe "checkpoint3" {
-    const torneo = new Torneo(participantes=[picachito, wulbasaur])
-    const picachito = new Electrico(nivel=10, ataques=[new Ataque(dañoQueHace=30), new Ataque(dañoQueHace=15)])
-    const wulbasaur = new Bicho(nivel=1)
+    const copaDeFuego = new Torneo(participantes=[picachito, wulbasaur])
+    const copaMaravilla = new Torneo(participantes=[picachito,wulbasaur,charmanda])
+    const picachito = new Electrico(nivel=10, ataques=[new Ataque(dañoQueHace=30), new Ataque(dañoQueHace=15)], puntosDeSalud=40)
+    const wulbasaur = new Bicho(nivel=1, puntosDeSalud=70)
     const escuartol = new Bicho(nivel=5)
+    const charmanda = new Bicho(nivel=1,puntosDeSalud=49)
     test "Si se intenta hacer luchar a Escuartol con picachito, se lanza un mensaje de error personalizado" {
       // Aún no sé cómo verificar el lanzamiento de excepciones.
+      assert.throwsExceptionWithMessage("Alguno de los wollomones no es participante del torneo", {=> copaDeFuego.batallaEntre(escuartol,picachito)})
     }
+    test "En la copaMaravilla, si se le da pociones a todos, solo se curan picachito y charmanda" {
+      copaMaravilla.darPocion()
+      assert.equals(60, picachito.puntosDeSalud())
+      assert.equals(70, wulbasaur.puntosDeSalud())
+      assert.equals(69, charmanda.puntosDeSalud())
+    }
+    
+    
+    
+
 }

@@ -1,7 +1,7 @@
 import wollok.mirror.*
 import game.*
 class Torneo{
-    const participantes = []
+    const property participantes = []
 
     method aprenderAtaqueMasivo(unAtaque){
         participantes.forEach({w => w.aprender(unAtaque)})
