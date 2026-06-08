@@ -23,6 +23,9 @@ class Wollomon{
     method recibirAtaqueDe(unWollokmon){
         puntosDeSalud = 0.max(puntosDeSalud - unWollokmon.daño())
     }
+    method tomarPocionDe(cant){
+        puntosDeSalud += cant
+    }
 }
 
 class Ataque{

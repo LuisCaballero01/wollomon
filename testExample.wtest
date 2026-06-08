@@ -1,5 +1,5 @@
 import wollomones.*
-
+import torneos.*
 describe "checkpoint1" {
     const wollomon1 = new Dragon(fuegoInterior=25, nivel=1)
     const drako = new Legendario(nivel = 20, fuegoInterior=25, insignia=insigniaRoja, ataques=[new Ataque(dañoQueHace=10), new Ataque(dañoQueHace=40)])
@@ -57,6 +57,11 @@ describe "checkpoint2" {
 }
 
 describe "checkpoint3" {
-
-
+    const torneo = new Torneo(participantes=[picachito, wulbasaur])
+    const picachito = new Electrico(nivel=10, ataques=[new Ataque(dañoQueHace=30), new Ataque(dañoQueHace=15)])
+    const wulbasaur = new Bicho(nivel=1)
+    const escuartol = new Bicho(nivel=5)
+    test "Si se intenta hacer luchar a Escuartol con picachito, se lanza un mensaje de error personalizado" {
+      // Aún no sé cómo verificar el lanzamiento de excepciones.
+    }
 }
