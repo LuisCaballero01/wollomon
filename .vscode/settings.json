@@ -1,0 +1,4 @@
+{
+    "wollokLSP.formatter.maxWidth": 80,
+    "wollokLSP.formatter.abbreviateAssignments": true
+}
