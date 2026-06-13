@@ -11,5 +11,5 @@ jobs:
           npm i -g wollok-ts-cli
         shell: bash
         name: Setup Wollok CLI
-      - run: wollok-ts-cli test --skipValidations -p ./
+      - run: npx wollok-ts-cli test --skipValidations -p ./
         name: Run tests
