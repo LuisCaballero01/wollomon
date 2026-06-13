@@ -1,4 +1,4 @@
-class Wollomon{
+class Wollomon{ 
 // atributos generales
     const property ataques = [] //property para tests
     var nivel
