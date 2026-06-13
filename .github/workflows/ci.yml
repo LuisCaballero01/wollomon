@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          npm install -g @uqbar/wollok-ts-cli
+          npm i -g wollok-ts-cli
         shell: bash
         name: Setup Wollok CLI
       - run: wollok-ts-cli test --skipValidations -p ./
